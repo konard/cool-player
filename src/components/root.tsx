@@ -1,7 +1,8 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
+import { Theme } from '@mui/material/styles'
+import { makeStyles } from '@mui/styles'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     position: 'fixed',
     display: 'flex',
@@ -14,11 +15,15 @@ const useStyles = makeStyles({
     width: '100%',
     background: '#403031',
   },
-})
+}))
 
-const Root = props => {
+interface RootProps {
+  children: React.ReactNode
+}
+
+const Root: React.FC<RootProps> = ({ children }) => {
   const classes = useStyles()
-  return <div className={classes.root}>{props.children}</div>
+  return <div className={classes.root}>{children}</div>
 }
 
 export default Root

@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/styles'
-import { Grid } from '@material-ui/core'
+import { Theme } from '@mui/material/styles'
+import { makeStyles } from '@mui/styles'
+import { Grid } from '@mui/material'
+import { ProgressbarProps, ProgressValues } from '@/types/player.types'
 
-const normalize = (value, max) => (value * 100) / max
+const normalize = (value: number, max: number): number => (value * 100) / max
 
 const thumbstyles = {
   zIndex: 200,
-  appearance: 'none',
+  appearance: 'none' as const,
   cursor: 'pointer',
   height: 12,
   width: 12,
@@ -15,16 +17,16 @@ const thumbstyles = {
   transition: 'all 0.3s ease',
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: Theme) => ({
   seeker: {
-    position: 'relative',
+    position: 'relative' as const,
     background: 'transparent',
-    boxSizing: 'border-box',
+    boxSizing: 'border-box' as const,
     cursor: 'pointer',
     height: 6,
     width: '100%',
-    appearance: 'none',
-    userSelect: 'none',
+    appearance: 'none' as const,
+    userSelect: 'none' as const,
     zIndex: 100,
     '&::-webkit-slider-thumb': {
       ...thumbstyles,
@@ -63,14 +65,14 @@ const useStyles = makeStyles(theme => ({
     background: theme.palette.primary.main,
     borderRadius: 10,
     height: 2,
-    width: values => `${normalize(values.played, values.duration)}%`,
+    width: (values: ProgressValues) => `${normalize(values.played, values.duration)}%`,
   },
   loaded: {
     borderRadius: 10,
     zIndex: 89,
     background: theme.palette.secondary.dark,
     height: 2,
-    width: values => `${normalize(values.loaded, values.duration)}%`,
+    width: (values: ProgressValues) => `${normalize(values.loaded, values.duration)}%`,
     opacity: 0.7,
   },
   none: {
@@ -83,7 +85,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Progressbar = ({ values, ...props }) => {
+const Progressbar: React.FC<ProgressbarProps> = ({ values, ...props }) => {
   const [isHovered, setHover] = useState(false)
   const classes = useStyles(values)
   return (

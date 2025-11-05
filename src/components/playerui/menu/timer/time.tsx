@@ -1,8 +1,9 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import { Theme } from '@mui/material/styles'
+import { makeStyles } from '@mui/styles'
 import getTimeFromSeconds from './timefromseconds'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: Theme) => ({
   container: {
     zIndex: 200,
     position: 'relative',
@@ -45,7 +46,12 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Time = ({ played, duration }) => {
+interface TimeProps {
+  played: number
+  duration: number
+}
+
+const Time: React.FC<TimeProps> = ({ played, duration }) => {
   const classes = useStyles()
   const playedtimeset = getTimeFromSeconds(played)
   const durationtimeset = getTimeFromSeconds(duration)

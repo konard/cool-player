@@ -1,10 +1,11 @@
 import React from 'react'
-import { Grid } from '@material-ui/core/'
+import { Grid } from '@mui/material'
 import Progressbar from './progressbar/progressbar'
 import Menu from './menu/menu'
 import Chat from './chat/chat'
+import { ControlpanelProps } from '@/types/player.types'
 
-const Controlpanel = ({
+const Controlpanel: React.FC<ControlpanelProps> = ({
   onSeekMouseDown,
   onSeekChange,
   onSeekMouseUp,
@@ -35,45 +36,42 @@ const Controlpanel = ({
         opacity: isInterface ? 1 : 0,
       }}
       direction="column"
-      justify="space-between"
+      justifyContent="space-between"
       alignItems="stretch"
     >
-      <Grid // top bar
+      <Grid
         item
         style={{
           height: 20,
           width: '100%',
-          // background: 'linear-gradient(to bottom, black, transparent)',
         }}
       />
       <Grid
         item
         container
-        style={{ width: '100%', posiotion: 'relative', height: '70%' }}
+        style={{ width: '100%', position: 'relative', height: '70%' }}
         direction="column"
-        justify="flex-start"
+        justifyContent="flex-start"
         alignItems="flex-end"
       >
         <Chat />
       </Grid>
-      <Grid //controls bar
+      <Grid
         item
         container
         direction="column"
-        justify="space-between"
+        justifyContent="space-between"
         alignItems="center"
         style={{
           height: 70,
           width: '100%',
-          // background: 'linear-gradient(to bottom, transparent, black)',
-          // background: 'blue',
         }}
       >
         <Grid
           item
           container
           direction="column"
-          justify="center"
+          justifyContent="center"
           alignItems="center"
           style={{ width: '95%', height: '20%', position: 'relative' }}
         >
@@ -88,7 +86,7 @@ const Controlpanel = ({
           item
           container
           direction="row"
-          justify="center"
+          justifyContent="center"
           alignItems="center"
           style={{
             width: '100%',

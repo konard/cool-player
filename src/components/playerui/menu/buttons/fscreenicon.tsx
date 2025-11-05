@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Fullscreenicon = props => (
+const Fullscreenicon: React.FC = () => (
   <>
     <g>
       <path

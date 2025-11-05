@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import { Theme } from '@mui/material/styles'
+import { makeStyles } from '@mui/styles'
+import { CoolButtonProps } from '@/types/player.types'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: Theme) => ({
   container: {
     zIndex: 210,
     position: 'relative',
@@ -57,13 +59,13 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Coolbutton = props => {
+const Coolbutton: React.FC<CoolButtonProps> = ({ onClick, children }) => {
   const [isHovered, setHover] = useState(false)
   const classes = useStyles()
   return (
     <div
       className={classes.container}
-      onClick={props.onClick}
+      onClick={onClick}
       onMouseOver={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onMouseUp={() => setHover(false)}
@@ -76,7 +78,7 @@ const Coolbutton = props => {
         preserveAspectRatio="xMinYMin meet"
         version="1.1"
       >
-        {props.children}
+        {children}
       </svg>
       <div className={classes.glowlayer} />
     </div>

@@ -1,8 +1,10 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
+import { Theme } from '@mui/material/styles'
+import { makeStyles } from '@mui/styles'
+import { VolumeBarProps } from '@/types/player.types'
 
 const thumbstyles = {
-  appearance: 'none',
+  appearance: 'none' as const,
   cursor: 'pointer',
   height: 12,
   width: 12,
@@ -10,7 +12,7 @@ const thumbstyles = {
   border: '1px solid',
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: Theme) => ({
   volume: {
     zIndex: 100,
     height: 30,
@@ -19,15 +21,14 @@ const useStyles = makeStyles(theme => ({
     cursor: 'pointer',
   },
   seeker: {
-    // position: 'relative',
     zIndex: 100,
     marginLeft: 15,
     background: theme.palette.secondary.dark,
     cursor: 'pointer',
     height: 2,
     width: 60,
-    appearance: 'none',
-    userSelect: 'none',
+    appearance: 'none' as const,
+    userSelect: 'none' as const,
     top: 0,
     left: 0,
     transition: 'all 0.1s ease',
@@ -50,17 +51,10 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Volumebar = ({ isMuted, toggleMuted, setVolume, volume }) => {
+const Volumebar: React.FC<VolumeBarProps> = ({ setVolume, volume }) => {
   const classes = useStyles()
   return (
     <>
-      {/* {isMuted || volume === 0 ? (
-        <VolumeOff onClick={toggleMuted} color="primary" className={classes.volume} />
-      ) : volume >= 0.6 ? (
-        <VolumeUp onClick={toggleMuted} color="primary" className={classes.volume} />
-      ) : (
-        <VolumeDown onClick={toggleMuted} color="primary" className={classes.volume} />
-      )} */}
       <input
         className={classes.seeker}
         onChange={setVolume}

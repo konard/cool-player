@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Playicon = props => (
+const Playicon: React.FC = () => (
   <>
     <g>
       <path

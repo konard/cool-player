@@ -1,68 +1,116 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Cool Player
 
-## Available Scripts
+A modern video player UI built with Next.js, React, and TypeScript. This project features a custom video player interface with controls, progress tracking, and a chat system.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Custom video player UI with play/pause controls
+- Progress bar with seeking functionality
+- Volume control
+- Fullscreen mode
+- Integrated chat system
+- Responsive design with Material-UI v6
+- Built with TypeScript for type safety
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tech Stack
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- **Framework**: Next.js 15
+- **Language**: TypeScript 5.6
+- **UI Library**: Material-UI (MUI) v6
+- **Video Player**: react-player
+- **Styling**: Emotion (CSS-in-JS)
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js 18+
+- npm or yarn
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+1. Clone the repository:
+```bash
+git clone https://github.com/Romanxz/cool-player.git
+cd cool-player
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies:
+```bash
+npm install
+```
 
-### `npm run eject`
+### Development
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Run the development server:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm run dev
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Build
 
-## Learn More
+Build the application for production:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Start Production Server
 
-### Code Splitting
+```bash
+npm start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Type Checking
 
-### Analyzing the Bundle Size
+Run TypeScript type checking:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```bash
+npm run type-check
+```
 
-### Making a Progressive Web App
+### Linting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Run ESLint:
 
-### Advanced Configuration
+```bash
+npm run lint
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Project Structure
 
-### Deployment
+```
+cool-player/
+├── src/
+│   ├── components/
+│   │   ├── playerui/           # Player UI components
+│   │   │   ├── chat/           # Chat system
+│   │   │   ├── menu/           # Control menu
+│   │   │   ├── progressbar/    # Progress bar
+│   │   │   └── playerui.tsx    # Main player UI
+│   │   ├── root.tsx            # Root layout component
+│   │   └── theme/              # Theme configuration
+│   ├── pages/
+│   │   ├── _app.tsx            # Next.js app wrapper
+│   │   ├── _document.tsx       # Document structure
+│   │   └── index.tsx           # Main page
+│   ├── styles/
+│   │   └── globals.css         # Global styles
+│   └── types/
+│       └── player.types.ts     # TypeScript type definitions
+├── public/                     # Static assets
+├── next.config.js              # Next.js configuration
+├── tsconfig.json               # TypeScript configuration
+└── package.json                # Dependencies
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Contributing
 
-### `npm run build` fails to minify
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## License
+
+This project is private and not licensed for public use.

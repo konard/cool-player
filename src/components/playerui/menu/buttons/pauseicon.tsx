@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Pauseicon = props => (
+const Pauseicon: React.FC = () => (
   <>
     <g>
       <path

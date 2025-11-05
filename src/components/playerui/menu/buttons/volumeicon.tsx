@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Volumeicon = props => (
+const Volumeicon: React.FC = () => (
   <>
     <g>
       <path
